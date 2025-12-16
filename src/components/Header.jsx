@@ -54,7 +54,7 @@ const Header = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <img 
-              src={aboutSection ? "/images/logo/Rise-Arc-dark-logo.png" : "/images/logo/Rise-Arc-Logo-Whitee.png"}
+              src={aboutSection ? "/images/logo/Rise-Arc-Logo-Whitee.png" : "/images/logo/Rise-Arc-dark-logo.png"}
               alt="RiceArc Logos" 
               className="h-12 w-auto transition-all duration-300"
             />
