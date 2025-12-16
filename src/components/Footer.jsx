@@ -80,7 +80,7 @@ const Footer = () => {
             >
               <img 
                 src="https://risearc.vercel.app/images/logo/Rise-Arc-dark-logo.png" 
-                alt="RiceArc Logo" 
+                alt="RiceArc Logos" 
                 className="h-12 w-auto"
               />
             </motion.div>
