@@ -163,42 +163,100 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Slide from Right */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200/20 dark:border-gray-700/20 rounded-b-2xl"
-            >
-              <div className="px-4 py-6 space-y-4">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-                <motion.a
-                  href="#contact"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full mt-4 hover:shadow-lg transition-all duration-300"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Start Project
-                </motion.a>
-              </div>
-            </motion.div>
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+                onClick={() => setIsOpen(false)}
+              />
+              
+              {/* Mobile Menu Panel */}
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.3 }}
+                className="fixed top-0 right-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-l border-gray-200/20 dark:border-gray-700/20 z-50 md:hidden"
+              >
+                <div className="flex flex-col h-full">
+                  {/* Header with Logo */}
+                  <div className="flex items-center justify-between p-6 border-b border-gray-200/20 dark:border-gray-700/20">
+                    <img 
+                      src="/images/logo/Rise-Arc-Logo-Whitee.png"
+                      alt="RiceArc Logo" 
+                      className="h-10 w-auto"
+                    />
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    >
+                      <X size={24} className="text-gray-700 dark:text-gray-300" />
+                    </button>
+                  </div>
+                  
+                  {/* Navigation Items */}
+                  <div className="flex-1 px-6 py-8">
+                    <nav className="space-y-4">
+                      {navItems.map((item, index) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 text-lg"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.name}
+                        </motion.a>
+                      ))}
+                    </nav>
+                    
+                    {/* CTA Button */}
+                    <motion.a
+                      href="#contact"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="block w-full text-center px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full mt-8 hover:shadow-lg transition-all duration-300"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Start Project
+                    </motion.a>
+                  </div>
+                  
+                  {/* Social Links */}
+                  <div className="px-6 py-6 border-t border-gray-200/20 dark:border-gray-700/20">
+                    <div className="flex justify-center space-x-6">
+                      {[
+                        { icon: '📧', href: 'mailto:hello@ricearc.com', label: 'Email' },
+                        { icon: '📱', href: 'tel:+15551234567', label: 'Phone' },
+                        { icon: '💼', href: '#about', label: 'About' }
+                      ].map((social, index) => (
+                        <motion.a
+                          key={social.label}
+                          href={social.href}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5 + index * 0.1 }}
+                          className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <span className="text-lg">{social.icon}</span>
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>

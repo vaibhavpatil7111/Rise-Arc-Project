@@ -195,15 +195,17 @@ const WhyChooseUs = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 rounded-3xl blur-xl transform rotate-1"></div>
             
             <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl p-12 rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
-              {/* Animated Icon */}
+              {/* Subtle Glow Icon */}
               <motion.div
+                initial={{ opacity: 0.8, scale: 0.95 }}
                 animate={{ 
-                  rotateY: [0, 360],
-                  scale: [1, 1.1, 1]
+                  opacity: [0.8, 1, 0.8],
+                  scale: [0.95, 1.05, 0.95]
                 }}
                 transition={{ 
-                  rotateY: { duration: 8, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
                 }}
                 className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl"
               >

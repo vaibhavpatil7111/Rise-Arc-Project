@@ -18,7 +18,7 @@ const Portfolio = () => {
     },
     {
       title: 'AI-Powered Dashboard',
-      description: 'Intelligent analytics dashboard with machine learning insights and real-time data visualization.',
+      description: 'Analytics dashboard with machine learning insights and real-time data visualization.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center',
       tags: ['Python', 'Django', 'AI/ML', 'D3.js'],
       gradient: 'from-purple-500 to-pink-500'
@@ -41,12 +41,12 @@ const Portfolio = () => {
       title: 'AI Chatbot Integration',
       description: 'Intelligent chatbot system with natural language processing and multi-platform support.',
       image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop&crop=center',
-      tags: ['AI/ML', 'NLP', 'API', 'Integration'],
+      tags: ['AI/ML', 'NLP', 'API', 'Automation', 'Integration'],
       gradient: 'from-indigo-500 to-purple-500'
     },
     {
       title: 'Brand Identity Design',
-      description: 'Complete brand identity package with logo design, guidelines, and marketing materials.',
+      description: 'Complete brand identity package with comprehensive logo design, guidelines, and marketing materials.',
       image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&crop=center',
       tags: ['Branding', 'Logo Design', 'Guidelines', 'Marketing'],
       gradient: 'from-teal-500 to-blue-500'

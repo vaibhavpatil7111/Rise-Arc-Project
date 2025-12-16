@@ -102,9 +102,9 @@ const Services = () => {
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="inline-block mb-6"
-          >
+          >🚀 
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-lg font-semibold">
-              🚀 Our Services
+               Our Services
             </span>
           </motion.div>
           
@@ -136,10 +136,9 @@ const Services = () => {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               whileHover={{ 
-                y: -15, 
-                rotateY: 5,
-                scale: 1.05,
-                transition: { duration: 0.4 }
+                y: -3, 
+                scale: 1.01,
+                transition: { duration: 0.3 }
               }}
               className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/25"
               style={{
@@ -161,22 +160,12 @@ const Services = () => {
               
               {/* Content */}
               <div className="relative z-10 p-8 h-full flex flex-col">
-                {/* Floating Icon */}
-                <motion.div
-                  className="mb-6"
-                  animate={{
-                    y: [-5, 5, -5],
-                    rotateY: [0, 360]
-                  }}
-                  transition={{
-                    y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                    rotateY: { duration: 8, repeat: Infinity, ease: "linear" }
-                  }}
-                >
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-2xl`}>
+                {/* Static Icon */}
+                <div className="mb-6">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center shadow-2xl`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
-                </motion.div>
+                </div>
                 
                 <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
                   {service.title}
@@ -196,11 +185,7 @@ const Services = () => {
                       transition={{ delay: 0.5 + index * 0.1 + featureIndex * 0.05 }}
                       className="flex items-center text-sm text-gray-300 group-hover:text-white transition-colors duration-300"
                     >
-                      <motion.div 
-                        className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 group-hover:scale-125 transition-transform duration-300`}
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: featureIndex * 0.2 }}
-                      ></motion.div>
+                      <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3`}></div>
                       {feature}
                     </motion.div>
                   ))}

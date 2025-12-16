@@ -146,46 +146,25 @@ const Process = () => {
                   
                   {/* Mobile Step Number */}
                   <div className="flex items-center mb-6 lg:hidden">
-                    <motion.div 
+                    <div 
                       className="w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4 text-white shadow-lg"
                       style={{
                         background: `linear-gradient(135deg, ${step.gradient.replace('from-', '').replace(' to-', ', ')})`,
                       }}
-                      whileHover={{ scale: 1.1, rotate: 360 }}
                     >
                       {index + 1}
-                    </motion.div>
-                    <motion.div
-                      animate={{
-                        rotateY: [0, 360]
-                      }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                      className={`w-12 h-12 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center`}
-                    >
+                    </div>
+                    <div className={`w-12 h-12 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center`}>
                       <step.icon className="w-6 h-6 text-white" />
-                    </motion.div>
+                    </div>
                   </div>
                   
                   {/* Desktop Icon */}
-                  <motion.div 
-                    className="hidden lg:flex items-center mb-6"
-                    animate={{
-                      rotateY: [0, 360]
-                    }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    <div className={`w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mr-4 shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="hidden lg:flex items-center mb-6">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mr-4 shadow-2xl`}>
                       <step.icon className="w-8 h-8 text-white" />
                     </div>
-                  </motion.div>
+                  </div>
                   
                   <div className="relative z-10">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
@@ -205,11 +184,7 @@ const Process = () => {
                           transition={{ delay: 0.5 + index * 0.1 + detailIndex * 0.05 }}
                           className="flex items-center text-gray-300 group-hover:text-white transition-colors duration-300"
                         >
-                          <motion.div 
-                            className={`w-3 h-3 bg-gradient-to-r ${step.gradient} rounded-full mr-4 group-hover:scale-125 transition-transform duration-300`}
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: detailIndex * 0.2 }}
-                          ></motion.div>
+                          <div className={`w-3 h-3 bg-gradient-to-r ${step.gradient} rounded-full mr-4`}></div>
                           {detail}
                         </motion.div>
                       ))}

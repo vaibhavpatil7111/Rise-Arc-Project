@@ -133,21 +133,10 @@ const Contact = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="relative"
           >
-            <motion.div
-              className="relative"
-              whileHover={{ 
-                scale: 1.02,
-                rotateY: 5,
-                transition: { duration: 0.3 }
-              }}
-              style={{
-                transformStyle: 'preserve-3d',
-                perspective: '1000px'
-              }}
-            >
+            <div className="relative">
               {/* 3D Background Effects */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-lg transform rotate-1"></div>
+              {/* <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-lg transform rotate-1"></div> */}
               
               <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl p-10 rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -176,7 +165,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:shadow-lg"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
                       placeholder="Your full name"
                     />
                   </motion.div>
@@ -196,7 +185,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:shadow-lg"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
                       placeholder="your@email.com"
                     />
                   </motion.div>
@@ -214,7 +203,7 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:shadow-lg"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
                     >
                       <option value="">Select a service</option>
                       <option value="web-development">Web Development</option>
@@ -242,7 +231,7 @@ const Contact = () => {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm hover:shadow-lg"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
                       placeholder="Tell us about your project, timeline, and any specific requirements..."
                     ></textarea>
                   </motion.div>
@@ -262,7 +251,7 @@ const Contact = () => {
                   </motion.button>
                 </form>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Enhanced Contact Information */}
@@ -308,7 +297,7 @@ const Contact = () => {
                   className="group relative overflow-hidden rounded-3xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-500 hover:shadow-2xl p-6"
                 >
                   {/* Animated Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.bgGradient} opacity-0 group-hover:opacity-20 rounded-3xl transition-opacity duration-500`}></div>
+                  {/* <div className={`absolute inset-0 bg-gradient-to-br ${info.bgGradient} opacity-0 group-hover:opacity-20 rounded-3xl transition-opacity duration-500`}></div> */}
                   
                   <div className="relative z-10 flex items-center space-x-6">
                     <div className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>

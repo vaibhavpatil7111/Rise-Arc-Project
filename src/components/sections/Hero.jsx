@@ -66,10 +66,12 @@ const Hero = () => {
           <div className="flex justify-center mb-8">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-75"></div>
-              <div className="relative flex items-center space-x-3 bg-white/10 backdrop-blur-xl text-white px-6 py-3 rounded-full text-sm font-medium border border-white/20">
-                <Sparkles size={18} className="text-yellow-400" />
-                <span>Premium Digital Solutions</span>
-                <span className="text-yellow-400 font-bold">✨ Innovate. Create. Dominate.</span>
+              <div className="relative flex flex-col sm:flex-row items-center sm:space-x-3 space-y-2 sm:space-y-0 bg-white/10 backdrop-blur-xl text-white px-4 sm:px-6 py-3 sm:py-3 rounded-full text-sm font-medium border border-white/20 text-center">
+                <div className="flex items-center space-x-2">
+                  <Sparkles size={16} className="text-yellow-400" />
+                  <span className="text-sm sm:text-base">Premium Digital Solutions</span>
+                </div>
+                <span className="text-yellow-400 font-bold text-xs sm:text-sm">✨ Innovate. Create. Dominate.</span>
               </div>
             </div>
           </div>
