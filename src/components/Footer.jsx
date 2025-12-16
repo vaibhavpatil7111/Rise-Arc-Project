@@ -79,7 +79,7 @@ const Footer = () => {
               transition={{ duration: 0.3 }}
             >
               <img 
-                src="/images/logo/Rise-Arc-dark-logo.png" 
+                src="https://risearc.vercel.app/images/logo/Rise-Arc-dark-logo.png" 
                 alt="RiceArc Logo" 
                 className="h-12 w-auto"
               />
