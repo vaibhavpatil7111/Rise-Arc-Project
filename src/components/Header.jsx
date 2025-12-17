@@ -6,16 +6,13 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [aboutSection, setAboutSection] = useState(false);
+  const [scrolledPast8px, setScrolledPast8px] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setScrolled(scrollPosition > 50);
-
-      // Check if we've reached the about section (approximately after hero section)
-      const heroHeight = window.innerHeight;
-      setAboutSection(scrollPosition > heroHeight * 0.8);
+      setScrolledPast8px(scrollPosition > 8);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -57,7 +54,7 @@ const Header = () => {
               src={
                 darkMode
                   ? "/images/logo/Rise-Arc-dark-logo.png"
-                  : aboutSection
+                  : scrolledPast8px
                   ? "/images/logo/Rise-Arc-Logo-Whitee.png"
                   : "/images/logo/Rise-Arc-dark-logo.png"
               }
@@ -76,7 +73,7 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 className={`relative ${
-                  darkMode ? 'text-white' : aboutSection ? "text-gray-700" : "text-white"
+                  darkMode ? 'text-white' : scrolledPast8px ? "text-gray-700" : "text-white"
                 } hover:text-blue-600 font-medium transition-all duration-300 group`}
               >
                 {item.name}
@@ -91,7 +88,7 @@ const Header = () => {
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {darkMode ? (
                   <motion.div
                     key="sun"
@@ -145,7 +142,7 @@ const Header = () => {
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               className={`${
-                aboutSection ? "text-gray-700" : "text-white"
+                scrolledPast8px ? "text-gray-700" : "text-white"
               } hover:text-blue-600 p-2`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

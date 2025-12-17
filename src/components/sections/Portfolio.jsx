@@ -116,7 +116,7 @@ const Portfolio = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                {/* <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -131,7 +131,7 @@ const Portfolio = () => {
                   >
                     <ExternalLink className="w-5 h-5" />
                   </motion.button>
-                </div>
+                </div> */}
               </div>
 
               {/* Project Content */}

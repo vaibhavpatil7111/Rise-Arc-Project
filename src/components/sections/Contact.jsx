@@ -310,7 +310,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Quick Response Guarantee */}
+            {/* Quick Response Guarantee
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -332,7 +332,7 @@ const Contact = () => {
                   urgent projects, feel free to call us directly.
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>

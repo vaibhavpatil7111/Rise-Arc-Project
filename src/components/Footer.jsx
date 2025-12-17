@@ -18,7 +18,7 @@ const Footer = () => {
     { name: 'CRM Solutions', href: '#services' },
     { name: 'AI Chatbots', href: '#services' },
     { name: 'Brand Design', href: '#services' },
-    { name: 'Mobile Apps', href: '#services' }
+    { name: 'AI-Powered Websites', href: '#services' }
   ]
 
   const socialLinks = [
