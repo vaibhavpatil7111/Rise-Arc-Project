@@ -1,61 +1,67 @@
-import React, { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const [darkMode, setDarkMode] = useState(false)
-  const [aboutSection, setAboutSection] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [aboutSection, setAboutSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      setScrolled(scrollPosition > 50)
-      
+      const scrollPosition = window.scrollY;
+      setScrolled(scrollPosition > 50);
+
       // Check if we've reached the about section (approximately after hero section)
-      const heroHeight = window.innerHeight
-      setAboutSection(scrollPosition > heroHeight * 0.8)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      const heroHeight = window.innerHeight;
+      setAboutSection(scrollPosition > heroHeight * 0.8);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
-  }, [darkMode])
+  }, [darkMode]);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Process', href: '#process' },
-    { name: 'Contact', href: '#contact' }
-  ]
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Process", href: "#process" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled 
-          ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20' 
-          : 'bg-transparent'
+        scrolled
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20"
+          : "bg-transparent"
       }`}
     >
       <nav className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <motion.div 
+          <motion.div
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img 
-              src={aboutSection ? "/images/logo/Rise-Arc-Logo-Whitee.png" : "/images/logo/Rise-Arc-dark-logo.png"}
-              alt="RiceArc Logos" 
+            <img
+              src={
+                darkMode
+                  ? "/images/logo/Rise-Arc-dark-logo.png"
+                  : aboutSection
+                  ? "/images/logo/Rise-Arc-Logo-Whitee.png"
+                  : "/images/logo/Rise-Arc-dark-logo.png"
+              }
+              alt="RiceArc Logos"
               className="h-12 w-auto transition-all duration-300"
             />
           </motion.div>
@@ -69,13 +75,15 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative ${aboutSection ? 'text-gray-700' : 'text-white'} hover:text-blue-600 font-medium transition-all duration-300 group`}
+                className={`relative ${
+                  darkMode ? 'text-white' : aboutSection ? "text-gray-700" : "text-white"
+                } hover:text-blue-600 font-medium transition-all duration-300 group`}
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
               </motion.a>
             ))}
-            
+
             {/* Dark Mode Toggle */}
             <motion.button
               onClick={() => setDarkMode(!darkMode)}
@@ -107,9 +115,9 @@ const Header = () => {
                 )}
               </AnimatePresence>
             </motion.button>
-            
-            <motion.a 
-              href="#contact" 
+
+            <motion.a
+              href="#contact"
               className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -127,12 +135,18 @@ const Header = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              {darkMode ? <Sun size={20} className="text-yellow-500" /> : <Moon size={20} className="text-gray-600" />}
+              {darkMode ? (
+                <Sun size={20} className="text-yellow-500" />
+              ) : (
+                <Moon size={20} className="text-gray-600" />
+              )}
             </motion.button>
-            
+
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className={`${aboutSection ? 'text-gray-700' : 'text-white'} hover:text-blue-600 p-2`}
+              className={`${
+                aboutSection ? "text-gray-700" : "text-white"
+              } hover:text-blue-600 p-2`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -176,31 +190,34 @@ const Header = () => {
                 className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
                 onClick={() => setIsOpen(false)}
               />
-              
+
               {/* Mobile Menu Panel */}
               <motion.div
-                initial={{ x: '100%' }}
+                initial={{ x: "100%" }}
                 animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: 'tween', duration: 0.3 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "tween", duration: 0.3 }}
                 className="fixed top-0 right-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-l border-gray-200/20 dark:border-gray-700/20 z-50 md:hidden"
               >
                 <div className="flex flex-col h-full">
                   {/* Header with Logo */}
                   <div className="flex items-center justify-between p-6 border-b border-gray-200/20 dark:border-gray-700/20">
-                    <img 
+                    <img
                       src="/images/logo/Rise-Arc-Logo-Whitee.png"
-                      alt="RiceArc Logo" 
+                      alt="RiceArc Logo"
                       className="h-10 w-auto"
                     />
                     <button
                       onClick={() => setIsOpen(false)}
                       className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     >
-                      <X size={24} className="text-gray-700 dark:text-gray-300" />
+                      <X
+                        size={24}
+                        className="text-gray-700 dark:text-gray-300"
+                      />
                     </button>
                   </div>
-                  
+
                   {/* Navigation Items */}
                   <div className="flex-1 px-6 py-8">
                     <nav className="space-y-4">
@@ -218,7 +235,7 @@ const Header = () => {
                         </motion.a>
                       ))}
                     </nav>
-                    
+
                     {/* CTA Button */}
                     <motion.a
                       href="#contact"
@@ -231,14 +248,22 @@ const Header = () => {
                       Start Project
                     </motion.a>
                   </div>
-                  
+
                   {/* Social Links */}
                   <div className="px-6 py-6 border-t border-gray-200/20 dark:border-gray-700/20">
                     <div className="flex justify-center space-x-6">
                       {[
-                        { icon: '📧', href: 'mailto:hello@ricearc.com', label: 'Email' },
-                        { icon: '📱', href: 'tel:+15551234567', label: 'Phone' },
-                        { icon: '💼', href: '#about', label: 'About' }
+                        {
+                          icon: "📧",
+                          href: "mailto:hello@ricearc.com",
+                          label: "Email",
+                        },
+                        {
+                          icon: "📱",
+                          href: "tel:+15551234567",
+                          label: "Phone",
+                        },
+                        { icon: "💼", href: "#about", label: "About" },
                       ].map((social, index) => (
                         <motion.a
                           key={social.label}
@@ -261,7 +286,7 @@ const Header = () => {
         </AnimatePresence>
       </nav>
     </motion.header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

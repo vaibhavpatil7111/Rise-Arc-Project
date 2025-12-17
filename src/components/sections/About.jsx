@@ -75,7 +75,7 @@ const About = () => {
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="inline-block mb-6"
           >
-            ✨
+            ✨ &nbsp;
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold">
               About RiceArc
             </span>

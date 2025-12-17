@@ -102,7 +102,7 @@ const Services = () => {
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="inline-block mb-6"
-          >🚀 
+          >🚀 &nbsp;
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-lg font-semibold">
                Our Services
             </span>
