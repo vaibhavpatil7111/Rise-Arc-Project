@@ -1,61 +1,64 @@
-import React, { useState, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Mail, Phone, Send, Clock, MessageCircle, Zap } from 'lucide-react'
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Mail, Phone, Send, Clock, MessageCircle, Zap } from "lucide-react";
 
 const Contact = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
-  
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.1 });
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData)
+    console.log("Form submitted:", formData);
     // You can integrate with your preferred form handling service
-  }
+  };
 
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
-      value: 'hello@ricearc.com',
-      link: 'mailto:hello@ricearc.com',
-      gradient: 'from-blue-500 to-cyan-500',
-      bgGradient: 'from-blue-500/10 to-cyan-500/10'
+      title: "Email Us",
+      value: "hello@ricearc.com",
+      link: "mailto:hello@ricearc.com",
+      gradient: "from-blue-500 to-cyan-500",
+      bgGradient: "from-blue-500/10 to-cyan-500/10",
     },
     {
       icon: Phone,
-      title: 'Call Us',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
-      gradient: 'from-green-500 to-emerald-500',
-      bgGradient: 'from-green-500/10 to-emerald-500/10'
+      title: "Call Us",
+      value: "+1 (555) 123-4567",
+      link: "tel:+15551234567",
+      gradient: "from-green-500 to-emerald-500",
+      bgGradient: "from-green-500/10 to-emerald-500/10",
     },
     {
       icon: Clock,
-      title: 'Business Hours',
-      value: 'Mon - Fri: 9AM - 6PM EST',
+      title: "Business Hours",
+      value: "Mon - Fri: 9AM - 6PM EST",
       link: null,
-      gradient: 'from-purple-500 to-pink-500',
-      bgGradient: 'from-purple-500/10 to-pink-500/10'
-    }
-  ]
+      gradient: "from-purple-500 to-pink-500",
+      bgGradient: "from-purple-500/10 to-pink-500/10",
+    },
+  ];
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden">
+    <section
+      id="contact"
+      className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden"
+    >
       {/* Simplified Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl"></div>
@@ -80,7 +83,7 @@ const Contact = () => {
               Let's Connect
             </span>
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Start Your Project
@@ -88,14 +91,14 @@ const Contact = () => {
             <br />
             <span className="text-gray-900 dark:text-white">Today</span>
           </h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Ready to transform your digital presence? Get in touch with us today 
+            Ready to transform your digital presence? Get in touch with us today
             and let's discuss how we can help bring your vision to life.
           </motion.p>
         </motion.div>
@@ -113,20 +116,23 @@ const Contact = () => {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
                   <MessageCircle className="w-8 h-8 text-white" />
                 </div>
-                
+
                 <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     Send us a message
                   </span>
                 </h3>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4 }}
                   >
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -146,7 +152,10 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.5 }}
                   >
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -166,7 +175,10 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.6 }}
                   >
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Service Interested In
                     </label>
                     <select
@@ -192,7 +204,10 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.7 }}
                   >
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Project Details *
                     </label>
                     <textarea
@@ -211,10 +226,10 @@ const Contact = () => {
                     type="submit"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.8 }}
-                    whileHover={{ 
+                    transition={{ delay: 0.3 }}
+                    whileHover={{
                       scale: 1.02,
-                      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)"
+                      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)",
                     }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -238,17 +253,17 @@ const Contact = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              
+
               <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
                 <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Get in Touch
                 </span>
               </h3>
-              
+
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center text-lg">
-                We're here to help bring your digital vision to life. Whether you have 
-                a specific project in mind or just want to explore possibilities, 
-                we'd love to hear from you.
+                We're here to help bring your digital vision to life. Whether
+                you have a specific project in mind or just want to explore
+                possibilities, we'd love to hear from you.
               </p>
             </div>
 
@@ -259,22 +274,19 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.02,
-                    y: -5,
-                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
+                  whileHover={{
+                    y: -3,
+                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
                   }}
                   className="relative rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg p-6 cursor-pointer transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
                 >
                   <div className="flex items-center space-x-6">
-                    <motion.div 
-                      className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}
-                      whileHover={{ rotate: 5, scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transition-all duration-300 hover:shadow-xl`}
                     >
                       <info.icon className="w-8 h-8 text-white" />
-                    </motion.div>
-                    
+                    </div>
+
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                         {info.title}
@@ -287,7 +299,9 @@ const Contact = () => {
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600 dark:text-gray-300 text-lg">{info.value}</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-lg">
+                          {info.value}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -303,16 +317,18 @@ const Contact = () => {
               className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
-                
-                <h4 className="text-xl font-bold mb-3">Quick Response Guarantee</h4>
+
+                <h4 className="text-xl font-bold mb-3">
+                  Quick Response Guarantee
+                </h4>
                 <p className="text-blue-100 leading-relaxed">
-                  We typically respond to all inquiries within 24 hours. 
-                  For urgent projects, feel free to call us directly.
+                  We typically respond to all inquiries within 24 hours. For
+                  urgent projects, feel free to call us directly.
                 </p>
               </div>
             </motion.div>
@@ -320,7 +336,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
