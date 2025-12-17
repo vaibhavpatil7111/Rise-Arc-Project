@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import Header from './components/Header'
 import Hero from './components/sections/Hero'
-import About from './components/sections/About'
-import Services from './components/sections/Services'
-import Portfolio from './components/sections/Portfolio'
-import WhyChooseUs from './components/sections/WhyChooseUs'
-import Process from './components/sections/Process'
-import Contact from './components/sections/Contact'
-import Footer from './components/Footer'
+import Loading from './components/ui/Loading'
+
+// Lazy load components for better performance
+const About = lazy(() => import('./components/sections/About'))
+const Services = lazy(() => import('./components/sections/Services'))
+const Portfolio = lazy(() => import('./components/sections/Portfolio'))
+const WhyChooseUs = lazy(() => import('./components/sections/WhyChooseUs'))
+const Process = lazy(() => import('./components/sections/Process'))
+const Contact = lazy(() => import('./components/sections/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   return (
@@ -15,16 +18,20 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <WhyChooseUs />
-        <Process />
-        <Contact />
+        <Suspense fallback={<Loading />}>
+          <About />
+          <Services />
+          <Portfolio />
+          <WhyChooseUs />
+          <Process />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<Loading />}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }
 
-export default App
+export default React.memo(App)

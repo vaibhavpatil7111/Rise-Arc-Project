@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import React, { useState, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Mail, Phone, Send, Clock, MessageCircle, Zap } from 'lucide-react'
 
 const Contact = () => {
@@ -58,34 +56,11 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden">
-      {/* Animated Background */}
+      {/* Simplified Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-conic from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-spin" style={{animationDuration: '30s'}}></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl"></div>
       </div>
-
-      {/* Floating Elements */}
-      {[...Array(10)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-4 h-4 bg-blue-500/20 rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            opacity: [0.2, 0.8, 0.2],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{
-            duration: 4 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
 
       <div className="container-max relative z-10">
         <motion.div
@@ -134,11 +109,7 @@ const Contact = () => {
             className="relative"
           >
             <div className="relative">
-              {/* 3D Background Effects */}
-              {/* <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-lg transform rotate-1"></div> */}
-              
-              <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl p-10 rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
+              <div className="relative bg-white dark:bg-gray-800 p-10 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
                   <MessageCircle className="w-8 h-8 text-white" />
                 </div>
@@ -165,7 +136,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
                       placeholder="Your full name"
                     />
                   </motion.div>
@@ -185,7 +156,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
                       placeholder="your@email.com"
                     />
                   </motion.div>
@@ -203,7 +174,7 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
                     >
                       <option value="">Select a service</option>
                       <option value="web-development">Web Development</option>
@@ -231,7 +202,7 @@ const Contact = () => {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white dark:bg-gray-700"
                       placeholder="Tell us about your project, timeline, and any specific requirements..."
                     ></textarea>
                   </motion.div>
@@ -241,13 +212,15 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.8 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl flex items-center justify-center group transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/50"
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)"
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    <span className="relative z-10">Send Message</span>
-                    <Send size={20} className="ml-3 group-hover:translate-x-1 transition-transform" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    <span>Send Message</span>
+                    <Send size={20} className="ml-3" />
                   </motion.button>
                 </form>
               </div>
@@ -261,25 +234,22 @@ const Contact = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl"></div>
-              <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl p-8 rounded-3xl border border-gray-200/50 dark:border-gray-700/50">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                  <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Get in Touch
-                  </span>
-                </h3>
-                
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center text-lg">
-                  We're here to help bring your digital vision to life. Whether you have 
-                  a specific project in mind or just want to explore possibilities, 
-                  we'd love to hear from you.
-                </p>
+            <div className="relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Zap className="w-8 h-8 text-white" />
               </div>
+              
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Get in Touch
+                </span>
+              </h3>
+              
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center text-lg">
+                We're here to help bring your digital vision to life. Whether you have 
+                a specific project in mind or just want to explore possibilities, 
+                we'd love to hear from you.
+              </p>
             </div>
 
             <div className="space-y-6">
@@ -290,22 +260,23 @@ const Contact = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
                   whileHover={{ 
-                    scale: 1.03,
+                    scale: 1.02,
                     y: -5,
-                    transition: { duration: 0.3 }
+                    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)"
                   }}
-                  className="group relative overflow-hidden rounded-3xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-500 hover:shadow-2xl p-6"
+                  className="relative rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg p-6 cursor-pointer transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
                 >
-                  {/* Animated Background */}
-                  {/* <div className={`absolute inset-0 bg-gradient-to-br ${info.bgGradient} opacity-0 group-hover:opacity-20 rounded-3xl transition-opacity duration-500`}></div> */}
-                  
-                  <div className="relative z-10 flex items-center space-x-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                  <div className="flex items-center space-x-6">
+                    <motion.div 
+                      className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <info.icon className="w-8 h-8 text-white" />
-                    </div>
+                    </motion.div>
                     
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                         {info.title}
                       </h4>
                       {info.link ? (
@@ -320,9 +291,6 @@ const Contact = () => {
                       )}
                     </div>
                   </div>
-                  
-                  {/* Hover Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-10 rounded-3xl blur-xl transition-opacity duration-500`}></div>
                 </motion.div>
               ))}
             </div>

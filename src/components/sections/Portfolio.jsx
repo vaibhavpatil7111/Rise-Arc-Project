@@ -1,8 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { ExternalLink, Github, Eye } from 'lucide-react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { ExternalLink, Eye } from 'lucide-react'
 
 const Portfolio = () => {
   const ref = useRef(null)
@@ -55,11 +53,7 @@ const Portfolio = () => {
 
   return (
     <section className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+
 
       <div className="container-max relative z-10">
         <motion.div
