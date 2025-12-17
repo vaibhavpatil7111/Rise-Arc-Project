@@ -3,14 +3,14 @@ import Header from './components/Header'
 import Hero from './components/sections/Hero'
 import Loading from './components/ui/Loading'
 
-// Lazy load components for better performance
-const About = lazy(() => import('./components/sections/About'))
-const Services = lazy(() => import('./components/sections/Services'))
-const Portfolio = lazy(() => import('./components/sections/Portfolio'))
-const WhyChooseUs = lazy(() => import('./components/sections/WhyChooseUs'))
-const Process = lazy(() => import('./components/sections/Process'))
-const Contact = lazy(() => import('./components/sections/Contact'))
-const Footer = lazy(() => import('./components/Footer'))
+// Lazy load components with preload hints
+const About = lazy(() => import(/* webpackChunkName: "about" */ './components/sections/About'))
+const Services = lazy(() => import(/* webpackChunkName: "services" */ './components/sections/Services'))
+const Portfolio = lazy(() => import(/* webpackChunkName: "portfolio" */ './components/sections/Portfolio'))
+const WhyChooseUs = lazy(() => import(/* webpackChunkName: "why-choose-us" */ './components/sections/WhyChooseUs'))
+const Process = lazy(() => import(/* webpackChunkName: "process" */ './components/sections/Process'))
+const Contact = lazy(() => import(/* webpackChunkName: "contact" */ './components/sections/Contact'))
+const Footer = lazy(() => import(/* webpackChunkName: "footer" */ './components/Footer'))
 
 function App() {
   return (
@@ -20,10 +20,20 @@ function App() {
         <Hero />
         <Suspense fallback={<Loading />}>
           <About />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
           <Services />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
           <Portfolio />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
           <WhyChooseUs />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
           <Process />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
           <Contact />
         </Suspense>
       </main>

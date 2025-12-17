@@ -1,33 +1,16 @@
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef, useMemo } from "react";
+import { motion, useInView } from "framer-motion";
 import { Award, Users, Rocket, TrendingUp, Star, Heart } from "lucide-react";
-import useCountUp from "../../hooks/useCountUp";
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
-  // Count-up animations for stats
-  const happyClients = useCountUp(10, 2000);
-  const projectsCompleted = useCountUp(25, 2500);
-  const clientSatisfaction = useCountUp(100, 2000);
-
-  const stats = [
-    { number: "10+", label: "Happy Clients", icon: Heart, count: happyClients },
-    { number: "25+", label: "Projects Completed", icon: Star, count: projectsCompleted },
-    { number: "100%", label: "Client Satisfaction", icon: TrendingUp, count: clientSatisfaction },
-  ];
-
-  // Start count-up animations when section is in view
-  useEffect(() => {
-    if (isInView) {
-      happyClients.startAnimation();
-      projectsCompleted.startAnimation();
-      clientSatisfaction.startAnimation();
-    }
-  }, [isInView]);
+  const stats = useMemo(() => [
+    { number: "10+", label: "Happy Clients", icon: Heart },
+    { number: "25+", label: "Projects Completed", icon: Star },
+    { number: "100%", label: "Client Satisfaction", icon: TrendingUp },
+  ], []);
 
   const features = [
     {
@@ -55,11 +38,7 @@ const About = () => {
       id="about"
       className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      </div>
+
 
       <div className="container-max relative z-10">
         <motion.div
@@ -128,14 +107,9 @@ const About = () => {
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
 
-                <motion.h3
-                  className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : {}}
-                  transition={{ delay: 1 + index * 0.1 }}
-                >
-                  {index === 0 ? `${stat.count.count}+` : index === 1 ? `${stat.count.count}+` : `${stat.count.count}%`}
-                </motion.h3>
+                <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                  {stat.number}
+                </h3>
 
                 <p className="text-gray-600 dark:text-gray-300 font-medium">
                   {stat.label}

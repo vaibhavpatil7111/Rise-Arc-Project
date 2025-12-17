@@ -53,12 +53,7 @@ const Process = () => {
 
   return (
     <section id="process" className="section-padding bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-blue-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-conic from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-spin" style={{animationDuration: '35s'}}></div>
-      </div>
+
 
       <div className="container-max relative z-10">
         <motion.div
@@ -118,15 +113,7 @@ const Process = () => {
                 style={{
                   background: `linear-gradient(135deg, ${step.gradient.replace('from-', '').replace(' to-', ', ')})`,
                 }}
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                animate={{
-                  boxShadow: [
-                    '0 0 20px rgba(59, 130, 246, 0.3)',
-                    '0 0 40px rgba(147, 51, 234, 0.4)',
-                    '0 0 20px rgba(59, 130, 246, 0.3)'
-                  ]
-                }}
+                whileHover={{ scale: 1.05 }}
               >
                 <span className="text-white font-bold text-xl">{index + 1}</span>
               </motion.div>
@@ -223,21 +210,9 @@ const Process = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 rounded-3xl blur-xl transform rotate-1"></div>
             
             <div className="relative bg-white/10 backdrop-blur-xl p-12 rounded-3xl border border-white/20 shadow-2xl">
-              {/* Animated Rocket */}
-              <motion.div
-                animate={{ 
-                  y: [-10, 10, -10],
-                  rotateZ: [-5, 5, -5]
-                }}
-                transition={{ 
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl"
-              >
+              <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
                 <Rocket className="w-12 h-12 text-white" />
-              </motion.div>
+              </div>
               
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">

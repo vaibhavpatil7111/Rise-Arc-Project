@@ -82,12 +82,7 @@ const Services = () => {
 
   return (
     <section id="services" className="section-padding bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-blue-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-conic from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-spin" style={{animationDuration: '30s'}}></div>
-      </div>
+
 
       <div className="container-max relative z-10">
         <motion.div
@@ -135,25 +130,14 @@ const Services = () => {
               variants={cardVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              whileHover={{ 
-                y: -3, 
-                scale: 1.01,
-                transition: { duration: 0.3 }
-              }}
+              whileHover={{ y: -3 }}
               className="group relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/25"
               style={{
                 transformStyle: 'preserve-3d',
                 perspective: '1000px'
               }}
             >
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
-                <div 
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.bgImage})` }}
-                ></div>
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-60`}></div>
-              </div>
+
               
               {/* Animated Gradient Overlay */}
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
