@@ -44,14 +44,14 @@ const Contact = () => {
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-500/10 to-emerald-500/10",
     },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      value: "Mon - Fri: 9AM - 6PM EST",
-      link: null,
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-500/10 to-pink-500/10",
-    },
+    // {
+    //   icon: Clock,
+    //   title: "Business Hours",
+    //   value: "Mon - Fri: 9AM - 6PM EST",
+    //   link: null,
+    //   gradient: "from-purple-500 to-pink-500",
+    //   bgGradient: "from-purple-500/10 to-pink-500/10",
+    // },
   ];
 
   return (
@@ -310,7 +310,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Quick Response Guarantee
+            {/* Quick Response Guarantee */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -332,7 +332,7 @@ const Contact = () => {
                   urgent projects, feel free to call us directly.
                 </p>
               </div>
-            </motion.div> */}
+            </motion.div>
           </motion.div>
         </div>
       </div>
