@@ -46,6 +46,7 @@ const Contact = () => {
       bgGradient: "from-christmas-green/10 to-green-600/10",
       emoji: "🎁"
     },
+    
   ];
 
   return (
