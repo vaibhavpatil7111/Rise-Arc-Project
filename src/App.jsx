@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react'
 import Header from './components/Header'
 import Hero from './components/sections/Hero'
 import Loading from './components/ui/Loading'
+import ChristmasTheme from './components/ui/ChristmasTheme'
 
 // Lazy load components with preload hints
 const About = lazy(() => import(/* webpackChunkName: "about" */ './components/sections/About'))
@@ -15,6 +16,7 @@ const Footer = lazy(() => import(/* webpackChunkName: "footer" */ './components/
 function App() {
   return (
     <div className="min-h-screen bg-white">
+      <ChristmasTheme />
       <Header />
       <main>
         <Hero />
