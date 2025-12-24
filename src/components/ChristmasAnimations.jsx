@@ -63,32 +63,26 @@ const ChristmasAnimations = () => {
         }}
       >
         <div className="relative">
-          {/* Santa Sleigh SVG */}
           <svg width="120" height="60" viewBox="0 0 120 60" className="drop-shadow-lg">
-            {/* Sleigh */}
             <path
               d="M20 40 Q15 35 20 30 L80 30 Q85 35 80 40 L75 45 L25 45 Z"
               fill="#8B4513"
               stroke="#654321"
               strokeWidth="1"
             />
-            {/* Santa */}
             <circle cx="50" cy="25" r="8" fill="#FFDBAC" />
             <path d="M42 20 Q45 15 50 20 Q55 15 58 20" fill="#DC143C" />
             <circle cx="47" cy="23" r="1" fill="#000" />
             <circle cx="53" cy="23" r="1" fill="#000" />
             <path d="M48 26 Q50 28 52 26" stroke="#000" strokeWidth="0.5" fill="none" />
-            {/* Body */}
             <rect x="45" y="30" width="10" height="15" fill="#DC143C" rx="2" />
             <rect x="46" y="32" width="8" height="3" fill="#FFF" />
-            {/* Reindeer */}
             <ellipse cx="90" cy="35" rx="8" ry="4" fill="#8B4513" />
             <circle cx="95" cy="32" r="3" fill="#8B4513" />
             <path d="M93 28 L95 25 M97 28 L99 25" stroke="#654321" strokeWidth="1" />
             <circle cx="96" cy="31" r="0.5" fill="#000" />
           </svg>
           
-          {/* Sparkle Trail */}
           <motion.div
             className="absolute -right-8 top-4"
             animate={{
@@ -170,7 +164,7 @@ const ChristmasAnimations = () => {
         </motion.div>
       </div>
 
-      {/* Subtle Christmas Lights Border */}
+      {/* Christmas Lights Border */}
       <div className="absolute top-0 left-0 w-full h-2">
         <motion.div
           className="flex justify-around h-full"
@@ -193,7 +187,7 @@ const ChristmasAnimations = () => {
               }}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
