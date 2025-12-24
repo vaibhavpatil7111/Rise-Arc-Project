@@ -39,10 +39,13 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-2xl border-b border-gray-200/20 dark:border-gray-700/20"
+          ? "bg-slate-900/90 backdrop-blur-xl shadow-2xl border-b border-christmas-gold/20 festive-shadow"
           : "bg-transparent"
       }`}
     >
+      {/* Christmas Lights Border */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-christmas-red via-christmas-green to-christmas-gold opacity-60"></div>
+      
       <nav className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <motion.div
@@ -50,17 +53,20 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img
-              src={
-                darkMode
-                  ? "/images/logo/Rise-Arc-dark-logo.png"
-                  : scrolledPast8px
-                  ? "/images/logo/Rise-Arc-Logo-Whitee.png"
-                  : "/images/logo/Rise-Arc-dark-logo.png"
-              }
-              alt="RiceArc Logos"
-              className="h-12 w-auto transition-all duration-300"
-            />
+            <div className="relative">
+              <img
+                src={
+                  darkMode
+                    ? "/images/logo/Rise-Arc-dark-logo.png"
+                    : scrolledPast8px
+                    ? "/images/logo/Rise-Arc-Logo-Whitee.png"
+                    : "/images/logo/Rise-Arc-Logo-Whitee.png"
+                }
+                alt="RiceArc Logos"
+                className="h-12 w-auto transition-all duration-300"
+              />
+              <span className="absolute -top-1 -right-1 text-lg animate-twinkle">🎄</span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -72,19 +78,17 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`relative ${
-                  darkMode ? 'text-white' : scrolledPast8px ? "text-gray-700" : "text-white"
-                } hover:text-blue-600 font-medium transition-all duration-300 group`}
+                className="relative text-white hover:christmas-text font-medium transition-all duration-300 group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-christmas-red to-christmas-green group-hover:w-full transition-all duration-300"></span>
               </motion.a>
             ))}
 
-            {/* Dark Mode Toggle */}
+            {/* Dark Mode Toggle with Christmas Theme */}
             <motion.button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+              className="p-2 rounded-full bg-christmas-gold/20 hover:bg-christmas-gold/30 transition-all duration-300 border border-christmas-gold/30"
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -97,7 +101,7 @@ const Header = () => {
                     exit={{ rotate: 180, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Sun size={20} className="text-yellow-500" />
+                    <Sun size={20} className="text-christmas-gold" />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -107,7 +111,7 @@ const Header = () => {
                     exit={{ rotate: -180, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Moon size={20} className="text-gray-600" />
+                    <Moon size={20} className="text-christmas-silver" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -115,12 +119,14 @@ const Header = () => {
 
             <motion.a
               href="#contact"
-              className="relative px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25"
+              className="relative px-6 py-3 bg-gradient-to-r from-christmas-red to-christmas-green text-white font-semibold rounded-full overflow-hidden group transition-all duration-300 hover:shadow-2xl festive-shadow"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">Start Project</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="relative z-10 flex items-center">
+                🎄 Start Project
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-christmas-green to-christmas-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.a>
           </div>
 
@@ -128,22 +134,20 @@ const Header = () => {
           <div className="md:hidden flex items-center space-x-4">
             <motion.button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
+              className="p-2 rounded-full bg-christmas-gold/20 border border-christmas-gold/30"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               {darkMode ? (
-                <Sun size={20} className="text-yellow-500" />
+                <Sun size={20} className="text-christmas-gold" />
               ) : (
-                <Moon size={20} className="text-gray-600" />
+                <Moon size={20} className="text-christmas-silver" />
               )}
             </motion.button>
 
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className={`${
-                scrolledPast8px ? "text-gray-700" : "text-white"
-              } hover:text-blue-600 p-2`}
+              className="text-white hover:christmas-text p-2"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -174,7 +178,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation - Slide from Right */}
+        {/* Mobile Navigation - Christmas Themed */}
         <AnimatePresence>
           {isOpen && (
             <>
@@ -194,23 +198,26 @@ const Header = () => {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "tween", duration: 0.3 }}
-                className="fixed top-0 right-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-l border-gray-200/20 dark:border-gray-700/20 z-50 md:hidden"
+                className="fixed top-0 right-0 h-full w-80 bg-slate-900/95 backdrop-blur-xl border-l border-christmas-gold/20 z-50 md:hidden festive-shadow"
               >
                 <div className="flex flex-col h-full">
                   {/* Header with Logo */}
-                  <div className="flex items-center justify-between p-6 border-b border-gray-200/20 dark:border-gray-700/20">
-                    <img
-                      src="/images/logo/Rise-Arc-Logo-Whitee.png"
-                      alt="RiceArc Logo"
-                      className="h-10 w-auto"
-                    />
+                  <div className="flex items-center justify-between p-6 border-b border-christmas-gold/20">
+                    <div className="relative">
+                      <img
+                        src="/images/logo/Rise-Arc-Logo-Whitee.png"
+                        alt="RiceArc Logo"
+                        className="h-10 w-auto"
+                      />
+                      <span className="absolute -top-1 -right-1 text-sm animate-twinkle">🎄</span>
+                    </div>
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                      className="p-2 rounded-full hover:bg-christmas-gold/20 transition-colors"
                     >
                       <X
                         size={24}
-                        className="text-gray-700 dark:text-gray-300"
+                        className="text-white"
                       />
                     </button>
                   </div>
@@ -225,7 +232,7 @@ const Header = () => {
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.1 }}
-                          className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 text-lg"
+                          className="block px-4 py-3 text-white hover:christmas-text font-medium rounded-lg hover:bg-christmas-gold/10 transition-all duration-300 text-lg"
                           onClick={() => setIsOpen(false)}
                         >
                           {item.name}
@@ -239,28 +246,28 @@ const Header = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      className="block w-full text-center px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full mt-8 hover:shadow-lg transition-all duration-300"
+                      className="block w-full text-center px-6 py-4 bg-gradient-to-r from-christmas-red to-christmas-green text-white font-semibold rounded-full mt-8 hover:shadow-lg transition-all duration-300 festive-shadow"
                       onClick={() => setIsOpen(false)}
                     >
-                      Start Project
+                      🎁 Start Project
                     </motion.a>
                   </div>
 
                   {/* Social Links */}
-                  <div className="px-6 py-6 border-t border-gray-200/20 dark:border-gray-700/20">
+                  <div className="px-6 py-6 border-t border-christmas-gold/20">
                     <div className="flex justify-center space-x-6">
                       {[
                         {
-                          icon: "📧",
+                          icon: "🎄",
                           href: "mailto:hello@ricearc.com",
                           label: "Email",
                         },
                         {
-                          icon: "📱",
+                          icon: "🎁",
                           href: "tel:+15551234567",
                           label: "Phone",
                         },
-                        { icon: "💼", href: "#about", label: "About" },
+                        { icon: "⭐", href: "#about", label: "About" },
                       ].map((social, index) => (
                         <motion.a
                           key={social.label}
@@ -268,10 +275,10 @@ const Header = () => {
                           initial={{ opacity: 0, scale: 0 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.5 + index * 0.1 }}
-                          className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-300"
+                          className="w-12 h-12 bg-christmas-gold/20 rounded-full flex items-center justify-center hover:bg-christmas-gold/30 transition-colors duration-300 border border-christmas-gold/30"
                           onClick={() => setIsOpen(false)}
                         >
-                          <span className="text-lg">{social.icon}</span>
+                          <span className="text-lg animate-twinkle">{social.icon}</span>
                         </motion.a>
                       ))}
                     </div>

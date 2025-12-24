@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Code, Zap, Sparkles, Rocket, Target } from 'lucide-react'
+import { ArrowRight, Code, Zap, Sparkles, Rocket, Target, Gift, Star } from 'lucide-react'
 
 const Hero = () => {
   const floatingAnimation = {
@@ -28,14 +28,15 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 pt-20">
-      {/* Simplified Background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-red-900/20 to-green-900/20 pt-20">
+      {/* Christmas Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-christmas-red/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-christmas-green/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-christmas-gold/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container-max section-padding text-center relative z-10">
+      <div className="container-max section-padding text-center relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,13 +44,13 @@ const Hero = () => {
         >
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-75"></div>
-              <div className="relative flex flex-col sm:flex-row items-center sm:space-x-3 space-y-2 sm:space-y-0 bg-white/10 backdrop-blur-xl text-white px-4 sm:px-6 py-3 sm:py-3 rounded-full text-sm font-medium border border-white/20 text-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-christmas-red to-christmas-green rounded-full blur-lg opacity-75 animate-christmas-glow"></div>
+              <div className="relative flex flex-col sm:flex-row items-center sm:space-x-3 space-y-2 sm:space-y-0 bg-white/10 backdrop-blur-xl text-white px-4 sm:px-6 py-3 sm:py-3 rounded-full text-sm font-medium border border-white/20 text-center festive-shadow">
                 <div className="flex items-center space-x-2">
-                  <Sparkles size={16} className="text-yellow-400" />
-                  <span className="text-sm sm:text-base">Premium Digital Solutions</span>
+                  <Gift size={16} className="text-christmas-gold animate-twinkle" />
+                  <span className="text-sm sm:text-base">🎄 Holiday Digital Solutions</span>
                 </div>
-                <span className="text-yellow-400 font-bold text-xs sm:text-sm">✨ Innovate. Create. Dominate.</span>
+                <span className="christmas-text font-bold text-xs sm:text-sm">✨ Season's Greetings from RiceArc!</span>
               </div>
             </div>
           </div>
@@ -60,10 +61,10 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, type: "spring", stiffness: 100 }}
           >
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Modern Digital Agency
+            <span className="bg-gradient-to-r from-christmas-red via-christmas-gold to-christmas-green bg-clip-text text-transparent christmas-text">
+              Festive Digital Agency
             </span>
-            <span className="block bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-christmas-gold via-white to-christmas-silver bg-clip-text text-transparent">
               Built for Growth
             </span>
           </motion.h1>
@@ -76,7 +77,7 @@ const Hero = () => {
           >
             We craft exceptional digital experiences with cutting-edge technology. 
             From React websites to AI chatbots, we deliver solutions that drive results.
-            <span className="block mt-2 text-lg text-blue-300 font-semibold">🚀 Where Innovation Meets Excellence</span>
+            <span className="block mt-2 text-lg christmas-text font-semibold">🎁 Special Holiday Offers Available!</span>
           </motion.p>
           
           <motion.div 
@@ -87,30 +88,30 @@ const Hero = () => {
           >
             <motion.a 
               href="#contact" 
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/50"
+              className="group relative px-8 py-4 bg-gradient-to-r from-christmas-red to-christmas-green text-white font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl festive-shadow"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 flex items-center">
-                Start Your Project
+                🎄 Start Your Project
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-christmas-green to-christmas-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </motion.a>
             
             <motion.a 
               href="#services" 
-              className="group px-8 py-4 border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 font-semibold rounded-full transition-all duration-300 backdrop-blur-sm hover:shadow-xl"
+              className="group px-8 py-4 border-2 border-christmas-gold/50 text-white hover:bg-christmas-gold hover:text-slate-900 font-semibold rounded-full transition-all duration-300 backdrop-blur-sm hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Our Services
+              🎁 View Our Services
             </motion.a>
           </motion.div>
         </motion.div>
 
-        {/* Redesigned Feature Cards */}
+        {/* Redesigned Feature Cards with Christmas Theme */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,22 +123,25 @@ const Hero = () => {
               icon: Code, 
               title: 'Modern Tech Stack', 
               desc: 'React, Django, WordPress & more',
-              gradient: 'from-blue-500 to-cyan-500',
-              bgGradient: 'from-blue-500/10 to-cyan-500/10'
+              gradient: 'from-christmas-red to-red-600',
+              bgGradient: 'from-christmas-red/10 to-red-600/10',
+              emoji: '🎄'
             },
             { 
               icon: Zap, 
               title: 'Fast Delivery', 
               desc: 'Quick turnaround without compromising quality',
-              gradient: 'from-purple-500 to-pink-500',
-              bgGradient: 'from-purple-500/10 to-pink-500/10'
+              gradient: 'from-christmas-green to-green-600',
+              bgGradient: 'from-christmas-green/10 to-green-600/10',
+              emoji: '⚡'
             },
             { 
               icon: Target, 
               title: 'Growth Focused', 
               desc: 'SEO optimized & conversion ready',
-              gradient: 'from-orange-500 to-red-500',
-              bgGradient: 'from-orange-500/10 to-red-500/10'
+              gradient: 'from-christmas-gold to-yellow-600',
+              bgGradient: 'from-christmas-gold/10 to-yellow-600/10',
+              emoji: '🎁'
             }
           ].map((item, index) => (
             <motion.div
@@ -151,7 +155,7 @@ const Hero = () => {
                 scale: 1.01,
                 transition: { duration: 0.2 }
               }}
-              className={`group relative p-8 bg-gradient-to-br ${item.bgGradient} backdrop-blur-xl rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-${item.gradient.split(' ')[1].split('-')[0]}-500/25`}
+              className={`group relative p-8 bg-gradient-to-br ${item.bgGradient} backdrop-blur-xl rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-2xl festive-shadow`}
               style={{
                 transformStyle: 'preserve-3d',
                 perspective: '1000px'
@@ -160,14 +164,15 @@ const Hero = () => {
               {/* Animated Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`}></div>
               
-              {/* Static Icon */}
+              {/* Icon with Christmas Emoji */}
               <div className="relative z-10">
-                <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg relative`}>
                   <item.icon className="w-8 h-8 text-white" />
+                  <span className="absolute -top-2 -right-2 text-lg animate-twinkle">{item.emoji}</span>
                 </div>
               </div>
               
-              <h3 className="font-bold text-xl text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+              <h3 className="font-bold text-xl text-white mb-3 group-hover:christmas-text transition-all duration-300">
                 {item.title}
               </h3>
               
@@ -177,6 +182,11 @@ const Hero = () => {
               
               {/* Hover Effect Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+              
+              {/* Christmas Sparkles */}
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Star size={16} className="text-christmas-gold animate-twinkle" />
+              </div>
             </motion.div>
           ))}
         </motion.div>

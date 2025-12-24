@@ -12,6 +12,7 @@
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   }
 }
 
@@ -23,11 +24,47 @@
   .container-max {
     @apply max-w-7xl mx-auto;
   }
+  
+  .christmas-gradient {
+    background: linear-gradient(135deg, #dc2626 0%, #059669 25%, #dc2626 50%, #eab308 75%, #dc2626 100%);
+    background-size: 400% 400%;
+    animation: christmasGlow 4s ease-in-out infinite;
+  }
+  
+  .christmas-text {
+    background: linear-gradient(45deg, #dc2626, #059669, #eab308, #dc2626);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: christmasText 3s ease-in-out infinite;
+  }
+  
+  .festive-shadow {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.3), 0 0 60px rgba(5, 150, 105, 0.2);
+  }
 }
 
+@keyframes christmasGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
+@keyframes christmasText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
 
 ::selection {
-  @apply bg-blue-500/20 text-blue-900;
+  @apply bg-red-500/20 text-red-900;
 }
 

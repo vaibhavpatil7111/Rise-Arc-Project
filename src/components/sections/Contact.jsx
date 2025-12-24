@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, Send, Clock, MessageCircle, Zap } from "lucide-react";
+import { Mail, Phone, Send, Clock, MessageCircle, Zap, Gift, Star } from "lucide-react";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -33,36 +33,31 @@ const Contact = () => {
       title: "Email Us",
       value: "hello@ricearc.com",
       link: "mailto:hello@ricearc.com",
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-500/10 to-cyan-500/10",
+      gradient: "from-christmas-red to-red-600",
+      bgGradient: "from-christmas-red/10 to-red-600/10",
+      emoji: "🎄"
     },
     {
       icon: Phone,
       title: "Call Us",
       value: "+1 (555) 123-4567",
       link: "tel:+15551234567",
-      gradient: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-500/10 to-emerald-500/10",
+      gradient: "from-christmas-green to-green-600",
+      bgGradient: "from-christmas-green/10 to-green-600/10",
+      emoji: "🎁"
     },
-    // {
-    //   icon: Clock,
-    //   title: "Business Hours",
-    //   value: "Mon - Fri: 9AM - 6PM EST",
-    //   link: null,
-    //   gradient: "from-purple-500 to-pink-500",
-    //   bgGradient: "from-purple-500/10 to-pink-500/10",
-    // },
   ];
 
   return (
     <section
       id="contact"
-      className="section-padding bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 relative overflow-hidden"
+      className="section-padding bg-gradient-to-br from-slate-900 via-red-900/10 to-green-900/10 relative overflow-hidden"
     >
-      {/* Simplified Background */}
+      {/* Christmas Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/3 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-christmas-red/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-christmas-green/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-christmas-gold/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container-max relative z-10">
@@ -79,33 +74,34 @@ const Contact = () => {
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="inline-block mb-6"
           >
-            💬 &nbsp;
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg font-semibold ">
-              Let's Connect
+            🎄 &nbsp;
+            <span className="christmas-text text-lg font-semibold ">
+              Holiday Greetings
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+            <span className="christmas-text">
               Start Your Project
             </span>
             <br />
-            <span className="text-gray-900 dark:text-white">Today</span>
+            <span className="text-white">This Holiday Season</span>
           </h2>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             Ready to transform your digital presence? Get in touch with us today
             and let's discuss how we can help bring your vision to life.
+            <span className="block mt-2 christmas-text font-semibold">🎁 Special holiday packages available!</span>
           </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* 3D Contact Form */}
+          {/* Christmas-themed Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -113,14 +109,15 @@ const Contact = () => {
             className="relative"
           >
             <div className="relative">
-              <div className="relative bg-white dark:bg-gray-800 p-10 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
+              <div className="relative bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-lg festive-shadow">
+                <div className="w-16 h-16 bg-gradient-to-r from-christmas-red to-christmas-green rounded-full flex items-center justify-center mx-auto mb-8 relative">
                   <MessageCircle className="w-8 h-8 text-white" />
+                  <span className="absolute -top-2 -right-2 text-lg animate-twinkle">🎄</span>
                 </div>
 
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Send us a message
+                <h3 className="text-3xl font-bold text-white mb-8 text-center">
+                  <span className="christmas-text">
+                    Send us a festive message
                   </span>
                 </h3>
 
@@ -132,7 +129,7 @@ const Contact = () => {
                   >
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Full Name *
                     </label>
@@ -143,7 +140,7 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
+                      className="w-full px-6 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-christmas-gold focus:border-transparent transition-all duration-300 bg-white/10 backdrop-blur-sm text-white placeholder-gray-400"
                       placeholder="Your full name"
                     />
                   </motion.div>
@@ -155,7 +152,7 @@ const Contact = () => {
                   >
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Email Address *
                     </label>
@@ -166,7 +163,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
+                      className="w-full px-6 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-christmas-gold focus:border-transparent transition-all duration-300 bg-white/10 backdrop-blur-sm text-white placeholder-gray-400"
                       placeholder="your@email.com"
                     />
                   </motion.div>
@@ -178,7 +175,7 @@ const Contact = () => {
                   >
                     <label
                       htmlFor="service"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Service Interested In
                     </label>
@@ -187,16 +184,16 @@ const Contact = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-gray-700"
+                      className="w-full px-6 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-christmas-gold focus:border-transparent transition-all duration-300 bg-white/10 backdrop-blur-sm text-white"
                     >
-                      <option value="">Select a service</option>
-                      <option value="web-development">Web Development</option>
-                      <option value="seo">SEO Services</option>
-                      <option value="crm">CRM Solutions</option>
-                      <option value="ai-chatbot">AI Chatbot Integration</option>
-                      <option value="branding">Logo & Brand Design</option>
-                      <option value="mobile-app">Mobile App Development</option>
-                      <option value="other">Other</option>
+                      <option value="" className="bg-slate-800">Select a service</option>
+                      <option value="web-development" className="bg-slate-800">🎄 Web Development</option>
+                      <option value="seo" className="bg-slate-800">🎁 SEO Services</option>
+                      <option value="crm" className="bg-slate-800">⭐ CRM Solutions</option>
+                      <option value="ai-chatbot" className="bg-slate-800">🤖 AI Chatbot Integration</option>
+                      <option value="branding" className="bg-slate-800">🎨 Logo & Brand Design</option>
+                      <option value="mobile-app" className="bg-slate-800">📱 Mobile App Development</option>
+                      <option value="other" className="bg-slate-800">🎊 Other</option>
                     </select>
                   </motion.div>
 
@@ -207,7 +204,7 @@ const Contact = () => {
                   >
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-gray-300 mb-2"
                     >
                       Project Details *
                     </label>
@@ -218,119 +215,93 @@ const Contact = () => {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white dark:bg-gray-700"
-                      placeholder="Tell us about your project, timeline, and any specific requirements..."
-                    ></textarea>
+                      className="w-full px-6 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-christmas-gold focus:border-transparent transition-all duration-300 bg-white/10 backdrop-blur-sm text-white placeholder-gray-400 resize-none"
+                      placeholder="Tell us about your project and holiday goals..."
+                    />
                   </motion.div>
 
                   <motion.button
                     type="submit"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.3 }}
-                    whileHover={{
-                      scale: 1.02,
-                      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.3)",
-                    }}
+                    transition={{ delay: 0.8 }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-christmas-red to-christmas-green text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:shadow-2xl festive-shadow group relative overflow-hidden"
                   >
-                    <span>Send Message</span>
-                    <Send size={20} className="ml-3" />
+                    <span className="relative z-10 flex items-center justify-center">
+                      🎁 Send Holiday Message
+                      <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-christmas-green to-christmas-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </motion.button>
                 </form>
               </div>
             </div>
           </motion.div>
 
-          {/* Enhanced Contact Information */}
+          {/* Contact Information with Christmas Theme */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
             className="space-y-8"
           >
-            <div className="relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-                <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Get in Touch
-                </span>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                <span className="christmas-text">Get in Touch</span>
               </h3>
-
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center text-lg">
-                We're here to help bring your digital vision to life. Whether
-                you have a specific project in mind or just want to explore
-                possibilities, we'd love to hear from you.
+              <p className="text-gray-300 text-lg">
+                We're here to help make your digital dreams come true this holiday season!
               </p>
             </div>
 
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
-                  whileHover={{
-                    y: -3,
-                    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
-                  }}
-                  className="relative rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg p-6 cursor-pointer transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                >
-                  <div className="flex items-center space-x-6">
-                    <div
-                      className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg transition-all duration-300 hover:shadow-xl`}
-                    >
-                      <info.icon className="w-8 h-8 text-white" />
-                    </div>
-
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                        {info.title}
-                      </h4>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-lg"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="text-gray-600 dark:text-gray-300 text-lg">
-                          {info.value}
-                        </p>
-                      )}
-                    </div>
+            {contactInfo.map((info, index) => (
+              <motion.a
+                key={index}
+                href={info.link}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.6 + index * 0.1 }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className={`block p-8 bg-gradient-to-br ${info.bgGradient} backdrop-blur-xl rounded-3xl border border-white/20 hover:border-white/40 transition-all duration-300 group festive-shadow`}
+              >
+                <div className="flex items-center space-x-6">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center shadow-lg relative group-hover:scale-110 transition-transform duration-300`}>
+                    <info.icon className="w-8 h-8 text-white" />
+                    <span className="absolute -top-2 -right-2 text-lg animate-twinkle">{info.emoji}</span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Quick Response Guarantee */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white shadow-2xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-white" />
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-white mb-2 group-hover:christmas-text transition-all duration-300">
+                      {info.title}
+                    </h4>
+                    <p className="text-gray-300 group-hover:text-white transition-colors duration-300 text-lg">
+                      {info.value}
+                    </p>
+                  </div>
+                  <Star className="w-6 h-6 text-christmas-gold opacity-0 group-hover:opacity-100 animate-twinkle transition-opacity duration-300" />
                 </div>
+              </motion.a>
+            ))}
 
-                <h4 className="text-xl font-bold mb-3">
-                  Quick Response Guarantee
-                </h4>
-                <p className="text-blue-100 leading-relaxed">
-                  We typically respond to all inquiries within 24 hours. For
-                  urgent projects, feel free to call us directly.
-                </p>
+            {/* Holiday Special Offer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.8 }}
+              className="p-8 bg-gradient-to-br from-christmas-gold/10 to-christmas-red/10 backdrop-blur-xl rounded-3xl border border-christmas-gold/30 text-center festive-shadow"
+            >
+              <div className="text-4xl mb-4 animate-twinkle">🎁</div>
+              <h4 className="text-2xl font-bold christmas-text mb-4">
+                Holiday Special Offer!
+              </h4>
+              <p className="text-gray-300 mb-6">
+                Get 20% off on all web development projects started before New Year!
+              </p>
+              <div className="flex justify-center space-x-4 text-2xl">
+                <span className="animate-twinkle">🎄</span>
+                <span className="animate-twinkle" style={{ animationDelay: '0.5s' }}>⭐</span>
+                <span className="animate-twinkle" style={{ animationDelay: '1s' }}>🎊</span>
               </div>
             </motion.div>
           </motion.div>
